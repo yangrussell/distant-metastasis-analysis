@@ -10,15 +10,12 @@
 # Example calls:
 # findsignificant("Breast cancer.GSE3494.HGU133A_EntrezCDF", method = "threshold", n = 0.05)
 # findsignificant("Breast cancer.GSE3494.HGU133A_EntrezCDF", method = "nlowest", n = 10)
-#
-# To use a validation dataset, uncomment the lines relating to valid
 
 findsignificant <- function(projects, method, sigtype, n) {
 	
     # Read in the gene expresion files
 	data=readRDS(paste("PRECOG_DMFS/Split/",projects,".DMFS.train.data.RData",sep=""))
 	data_test=read.csv(paste("PRECOG_DMFS/Split/",projects,".DMFS.test.data.tsv",sep=""), sep = "\t")
-	#data_valid=read.csv(paste("PRECOG_DMFS/Split/",projects,".DMFS.valid.data.tsv",sep=""),sep="\t")
 
     # Read in the survres file
     survres=read.csv(paste("C:/Users/russe/Downloads/PRECOG_DMFS/Results/",projects,".DMFS.survres.tsv",sep=""),sep="\t",header=TRUE)
@@ -78,8 +75,6 @@ findsignificant <- function(projects, method, sigtype, n) {
 	new_test = data_test[data$Name %in% significant,]
 	write.table(new_test, paste("PRECOG_DMFS/Significant/",n,"qvaluetest/",projects,".model.qvalue.data.tsv",sep=""), sep="\t", row.names=FALSE)
 	
-	#new_valid = data_valid[data$Name %in% significant,]
-	#write.table(new_valid, paste("PRECOG_DMFS/Significant/allvalidlowest10qvalue/",projects,".qvalue.data.tsv",sep=""), sep="\t", row.names=FALSE)
 	
 
     # Print what's happening

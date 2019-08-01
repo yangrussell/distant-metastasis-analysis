@@ -5,8 +5,7 @@
 #
 # Example calls:
 # Run_Cox("Breast cancer.GSE3494.HGU133A_EntrezCDF")
-#
-# To use a validation dataset, uncomment the lines relating to valid
+
 normalize <- function(project) {
 
 # Require the necessary libraries

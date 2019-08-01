@@ -1,7 +1,7 @@
 # Converts objects in a directory between RData and .tsv files so that they can easily be visually inspected
 #
 # Example calls:
-# rdatatotsv()
+# changefiletype()
 
 changefiletype <- function() {
 require("tm")
